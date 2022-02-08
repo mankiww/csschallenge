@@ -1,0 +1,200 @@
+Challenges = [{
+  "html": `<div class="frame">
+  <div class="center">
+		<div class="hundread">
+			<div class="one first"></div>
+			<div class="one second"></div>
+			<div class="zero first"></div>
+			<div class="zero second"></div>
+		</div>
+		<p class="days">DAYS</p>
+		<p class="description">CSS CHALLENGE</p>
+  </div>
+</div>`,
+  "css": `
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+  .frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+    background: linear-gradient(to top right, #3D3986, #6DE6E0);
+    color: #333;
+    font-family: "Courier New", "Courier", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .center {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: white;
+  }
+  
+  .center p {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .days {
+    margin: 0;
+    font-size: 80px;
+    font-weight: bold;
+  }
+  
+  .description {
+    margin-top: -20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .hundread {
+    width: 180px;
+    height: 100px;
+    margin-bottom: -12px;
+  }
+  
+  .hundread div {
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .one {
+    border-radius: 4px;
+  }
+  
+  .one.first {
+    width: 40px;
+    height: 20px;
+    transform: translate(-26px, 11px) rotate(-40deg);
+    background-color: #fdfdfd;
+  }
+  
+  .one.second {
+    z-index: 1;
+    width: 23px;
+    height: 100px;
+    background-color: white;
+  }
+  
+  .zero {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  .zero.first {
+    border: 25px solid white;
+    transform: translateX(15px);
+  }
+  
+  .zero.second {
+    z-index: -1;
+    border: 25px solid white;
+    transform: translateX(95px);
+  }
+  `
+}, {
+  "html": `<div class="frame">
+  <div class="center">
+		<button type="button" class="hamburger">
+			<div></div>
+			<div></div>
+			<div></div>
+		</button>
+  </div>
+</div>`,
+  "css" : `
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+  
+  .frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+    overflow: hidden;
+    background: rgba(80, 180, 136, 1);
+    color: #333;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  
+  .hamburger {
+    position: relative;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .hamburger div {
+    background-color: white;
+    width: 80px;
+    height: 8px;
+    margin: 14px auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: .5s;
+  }
+  
+  .hamburger.moved :nth-child(1) {
+    transform: translateY(22px);
+    transition: .5s;
+  }
+  
+  .hamburger.moved :nth-child(2) {
+    width: 6px;
+    transition: 1s;
+  }
+  
+  .hamburger.moved :nth-child(3) {
+    transform: translateY(-22px);
+    transition: .5s;
+  }
+  
+  .hamburger.rotated :nth-child(1) {
+    transform: translateY(22px) rotate(45deg);
+    transition: .5s;
+  }
+  
+  .hamburger.rotated :nth-child(3) {
+    transform: translateY(-22px) rotate(135deg);
+    transition: .5s;
+  }
+  `,
+  "script": `
+  const $menubar = document.querySelector(".hamburger");
+
+  $menubar.addEventListener("click", () => {
+    const isCross = $menubar.classList.contains("moved");
+    
+    $menubar.classList.toggle(isCross ? "rotated" : "moved");
+
+    setTimeout(() => {
+        $menubar.classList.toggle(isCross ? "moved" : "rotated");
+    }, 500);
+  });
+  `
+}]

@@ -1,0 +1,26 @@
+#main {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+a {
+  color: black;
+}
+
+challenge-card {
+  display: block;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+article a {
+  display: block;
+  width: 100%;
+  text-decoration: wavy;
+  font-size: 25px;
+}
